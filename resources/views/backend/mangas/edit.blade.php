@@ -779,7 +779,7 @@ Edit manga
 @section('modal')
 <div id="modal-form-1" class="zoom-anim-dialog mfp-hide modal">
     <form action="{{ route('backend.chapter.store') }}" enctype="multipart/form-data" method="POST" id="frmCreateChapter">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <input type="hidden" name="manga_id" value="{{ $manga['id'] }}">
     <h6 class="modal__title">Create New Chapter</h6>
     <div class="form">

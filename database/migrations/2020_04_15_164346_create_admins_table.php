@@ -24,8 +24,8 @@ class CreateAdminsTable extends Migration
             $table->integer('role')->comment('vai tro');
             $table->string('password')->comment('mat khau');
             $table->rememberToken()->comment('ma token');
-            $table->integer('user_created_id')->comment('nguoi tao');
-            $table->integer('user_updated_id')->comment('nguoi cap nhat');
+            $table->unsignedBigInteger('user_created_id')->comment('nguoi tao');
+            $table->unsignedBigInteger('user_updated_id')->comment('nguoi cap nhat');
             $table->timestamps();
             $table->softDeletes()->comment('thoi gian xoa');
         });

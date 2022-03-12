@@ -15,10 +15,10 @@ class CreateRolePermissionTable extends Migration
     {
       Schema::create('role_permission', function (Blueprint $table) {
        $table->bigIncrements('id')->comment('id');
-       $table->integer('role_id')->comment('id cua role');
-       $table->integer('permission_id')->comment('id cua permission');
-       $table->integer('user_created_id')->comment('nguoi tao');
-       $table->integer('user_updated_id')->comment('nguoi cap nhat');
+       $table->unsignedBigInteger('role_id')->comment('id cua role');
+       $table->unsignedBigInteger('permission_id')->comment('id cua permission');
+       $table->unsignedBigInteger('user_created_id')->comment('nguoi tao');
+       $table->unsignedBigInteger('user_updated_id')->comment('nguoi cap nhat');
        $table->timestamps();
        $table->softDeletes()->comment('thoi gian xoa');
      });

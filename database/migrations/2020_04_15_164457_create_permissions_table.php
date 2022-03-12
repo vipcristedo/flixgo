@@ -19,8 +19,8 @@ class CreatePermissionsTable extends Migration
             $table->string('display_name');
             $table->text('description')->nullable();
             $table->integer('status')->default(1);
-            $table->integer('user_created_id');
-            $table->integer('user_updated_id');
+            $table->unsignedBigInteger('user_created_id');
+            $table->unsignedBigInteger('user_updated_id');
             $table->timestamps();
             $table->softDeletes();
         });

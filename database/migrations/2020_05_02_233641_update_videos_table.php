@@ -14,7 +14,7 @@ class UpdateVideosTable extends Migration
     public function up()
     {
         Schema::table('videos', function (Blueprint $table) {
-            $table->integer('movie_id')->nullable()->change();
+            $table->unsignedBigInteger('movie_id')->nullable()->change();
             $table->string('slug')->nullable()->change();
             $table->string('tags')->nullable()->change();
             $table->integer('status')->default(1)->change();
@@ -29,7 +29,7 @@ class UpdateVideosTable extends Migration
     public function down()
     {
         Schema::table('videos', function (Blueprint $table) {
-            $table->integer('movie_id')->nullable()->change();
+            $table->unsignedBigInteger('movie_id')->nullable()->change();
             $table->string('slug')->nullable()->change();
             $table->string('tags')->nullable()->change();
             $table->integer('status')->default(1)->change();

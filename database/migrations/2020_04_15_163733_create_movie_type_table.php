@@ -1,4 +1,4 @@
-<?php
+unsignedBigInteger<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,10 +15,10 @@ class CreateMovieTypeTable extends Migration
     {
         Schema::create('movie_type', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('movie_id');
-            $table->integer('type_id');
-            $table->integer('user_created_id');
-            $table->integer('user_updated_id');
+            $table->unsignedBigInteger('movie_id');
+            $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('user_created_id');
+            $table->unsignedBigInteger('user_updated_id');
             $table->timestamps();
             $table->softDeletes();
         });

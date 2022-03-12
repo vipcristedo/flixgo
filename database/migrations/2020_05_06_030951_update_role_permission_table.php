@@ -26,6 +26,6 @@ class UpdateRolePermissionTable extends Migration
      */
     public function down()
     {
-        Schema::drop('permission_role');
+        Schema::rename('permission_role', 'role_permission');
     }
 }

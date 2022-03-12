@@ -15,10 +15,10 @@ class CreateMangaTypeTable extends Migration
     {
         Schema::create('manga_type', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('id');
-            $table->integer('manga_id')->comment('id cua manga');
-            $table->integer('type_id')->comment('id cua type');
-            $table->integer('user_created_id')->comment('nguoi tao');
-            $table->integer('user_updated_id')->comment('nguoi cap nhat');
+            $table->unsignedBigInteger('manga_id')->comment('id cua manga');
+            $table->unsignedBigInteger('type_id')->comment('id cua type');
+            $table->unsignedBigInteger('user_created_id')->comment('nguoi tao');
+            $table->unsignedBigInteger('user_updated_id')->comment('nguoi cap nhat');
             $table->timestamps();
             $table->softDeletes()->comment('thoi gian xoa');
         });

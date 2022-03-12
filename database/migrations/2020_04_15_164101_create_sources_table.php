@@ -16,14 +16,14 @@ class CreateSourcesTable extends Migration
         Schema::create('sources', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('id');
             $table->string('source_key')->comment('ma cua duong dan');
-            $table->integer('video_id')->comment('id cua video');
+            $table->unsignedBigInteger('video_id')->comment('id cua video');
             $table->integer('language')->comment('ngon ngu');
             $table->integer('prioritize')->comment('uu tien');
             $table->integer('status')->default(1)->comment('trang thai');
-            $table->integer('movie_id')->comment('id cua movie');
+            $table->unsignedBigInteger('movie_id')->comment('id cua movie');
             $table->integer('channel_id')->comment('id cua channel');
-            $table->integer('user_created_id')->comment('nguoi tao');
-            $table->integer('user_updated_id')->comment('nguoi cap nhat');
+            $table->unsignedBigInteger('user_created_id')->comment('nguoi tao');
+            $table->unsignedBigInteger('user_updated_id')->comment('nguoi cap nhat');
             $table->timestamps();
             $table->softDeletes()->comment('thoi gian xoa');
         });

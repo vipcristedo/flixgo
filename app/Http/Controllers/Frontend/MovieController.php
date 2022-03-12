@@ -115,12 +115,12 @@ class MovieController extends Controller
 
             if ($sever == 1) {
 
-                $source = Source::select('id', 'source_key', 'video_id','status', 'prioritize', 'status', 'movie_id', 'channel_id','video_id')
+                $source = Source::select('id', 'source_key', 'video_id','status', 'prioritize', 'status', 'channel_id','video_id')
                     ->where('prioritize', 1)
                     ->where('status', '1')
                     ->where('video_id', $video_movie->id);
             } else {
-                $source = Source::select('sources.id', 'source_key','sources.status', 'video_id', 'prioritize', 'sources.status', 'sources.movie_id', 'channel_id')
+                $source = Source::select('sources.id', 'source_key','sources.status', 'video_id', 'prioritize', 'sources.status', 'channel_id')
                     ->join('channels', function ($join) {
                         $join->on('sources.channel_id', '=', 'channels.id');
                     })->where('channels.order', $sever)

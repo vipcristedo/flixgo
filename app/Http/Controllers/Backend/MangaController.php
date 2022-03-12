@@ -486,7 +486,6 @@ class MangaController extends Controller
         $chapter->manga_id = $mangaId;
         $chapter_pictures = $chapter->pictures;
         foreach ($chapter_pictures as $chapter_picture) {
-            $chapter_picture->manga_id = $mangaId;
             $chapter_picture->user_updated_id = Auth::user()->id;
             $chapter_picture->save();
         }

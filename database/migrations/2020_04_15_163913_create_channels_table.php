@@ -21,8 +21,8 @@ class CreateChannelsTable extends Migration
        $table->integer('order')->comment('so thu tu uu tien');
        $table->text('description')->nullable()->comment('mo ta');
        $table->integer('status')->default(1)->comment('trang thai');
-       $table->integer('user_created_id')->comment('nguoi tao');
-       $table->integer('user_updated_id')->comment('nguoi cap nhat');
+       $table->unsignedBigInteger('user_created_id')->comment('nguoi tao');
+       $table->unsignedBigInteger('user_updated_id')->comment('nguoi cap nhat');
        $table->timestamps();
        $table->softDeletes()->comment('thoi gian xoa');
      });

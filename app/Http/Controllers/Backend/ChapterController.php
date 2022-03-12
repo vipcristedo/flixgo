@@ -89,7 +89,7 @@ class ChapterController extends Controller
 
     public function getPictures(Request $request,$id){
         $pictures = Chapter_picture::where('chapter_id','=',$id);
-        $pictures = $pictures->orderBy('order','DESC')->get();
+        $pictures = $pictures->orderBy('order','ASC')->get();
 
         return DataTables::of($pictures->toArray())
             ->editColumn('id', function ($picture){
@@ -319,10 +319,6 @@ class ChapterController extends Controller
     public function detach($id){
         $chapter = Chapter::findOrFail($id);
         $chapter->manga_id = null;
-        foreach ($chapter->pictures as $picture) {
-            $picture->manga_id = null;
-            $picture->save();
-        }
         $chapter->user_updated_id = Auth::user()->id;
 
         $chapter->save();
@@ -343,7 +339,6 @@ class ChapterController extends Controller
         if($request->get('sources')!=null) {
             $pic->sources = $request->get('sources');
         }
-        $pic->manga_id = $chapter->manga_id == NULL?NULL:$chapter->manga_id;
         $pic->status=1;
         $pic->user_created_id=Auth::user()->id;
         $pic->user_updated_id=Auth::user()->id;

@@ -16,12 +16,12 @@ class CreatePlaylistsTable extends Migration
         Schema::create('playlists', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('id');
             $table->string('title')->comment('tieu de');
-            $table->integer('movie_id')->comment('id cua movie');
+            $table->unsignedBigInteger('movie_id')->comment('id cua movie');
             $table->text('description')->nullable()->comment('mo ta');
             $table->integer('order')->comment('so thu tu');
             $table->integer('status')->default(1)->comment('trang thai');
-            $table->integer('user_created_id')->comment('nguoi tao');
-            $table->integer('user_updated_id')->comment('nguoi cap nhat');
+            $table->unsignedBigInteger('user_created_id')->comment('nguoi tao');
+            $table->unsignedBigInteger('user_updated_id')->comment('nguoi cap nhat');
             $table->timestamps();
             $table->softDeletes()->comment('thoi gian xoa');
         });

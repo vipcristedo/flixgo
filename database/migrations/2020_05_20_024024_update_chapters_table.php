@@ -14,7 +14,7 @@ class UpdateChaptersTable extends Migration
     public function up()
     {
         Schema::table('chapters', function (Blueprint $table) {
-            $table->integer('manga_id')->nullable()->change();
+            $table->unsignedBigInteger('manga_id')->nullable()->change();
         });
     }
 

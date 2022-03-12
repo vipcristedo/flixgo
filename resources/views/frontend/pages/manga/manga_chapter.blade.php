@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @if($ads !=null)
+                            @if($ads != null)
                                 @if(($i+1)%$kc==0 && $vt<count($ads))
                                     <div class="row">
                                         <!-- card cover -->

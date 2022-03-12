@@ -15,15 +15,15 @@ class CreateChaptersTable extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('id');
-            $table->integer('manga_id')->comment('id cua manga');
+            $table->unsignedBigInteger('manga_id')->comment('id cua manga');
             $table->string('name')->comment('ten');
             $table->string('slug')->comment('duong dan');
             $table->integer('chap')->comment('tap so may');
             $table->integer('status')->comment('trang thai');
             $table->text('description')->comment('mo ta');
             $table->integer('release_year')->comment('nam xuat ban');
-            $table->integer('user_created_id')->comment('nguoi tao');
-            $table->integer('user_updated_id')->comment('nguoi cap nhat');
+            $table->unsignedBigInteger('user_created_id')->comment('nguoi tao');
+            $table->unsignedBigInteger('user_updated_id')->comment('nguoi cap nhat');
             $table->timestamps();
             $table->softDeletes()->comment('thoi gian xoa');
         });

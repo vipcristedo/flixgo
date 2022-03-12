@@ -86,7 +86,6 @@ class Manga_adController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $validator = Validator::make($request->all(),
             [
                 'link' => 'required|min:2',
@@ -133,6 +132,7 @@ class Manga_adController extends Controller
         $manga_ad->user_updated_id = Auth::user()->id;
 
         $manga_ad->save();
+        return redirect()->back();
         return response()->json(['success' => true],200);
 //        return redirect()->route('backend.manga_ad.index');
     }

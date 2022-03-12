@@ -26,8 +26,8 @@ class CreateMangasTable extends Migration
             $table->integer('release_year')->comment('nam xuat ban');
             $table->integer('rate')->comment('diem danh gia');
             $table->integer('nominations')->comment('uu tien');
-            $table->integer('user_created_id')->comment('nguoi tao');
-            $table->integer('user_updated_id')->comment('nguoi cap nhat');
+            $table->unsignedBigInteger('user_created_id')->comment('nguoi tao');
+            $table->unsignedBigInteger('user_updated_id')->comment('nguoi cap nhat');
             $table->timestamps();
             $table->softDeletes()->comment('thoi gian xoa');
         });

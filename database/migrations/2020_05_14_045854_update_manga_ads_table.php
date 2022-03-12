@@ -14,7 +14,7 @@ class UpdateMangaAdsTable extends Migration
     public function up()
     {
         Schema::table('manga_ads', function (Blueprint $table) {
-            $table->integer('object_id')->nullable()->change();
+            $table->unsignedBigInteger('object_id')->nullable()->change();
             $table->string('table_name')->nullable()->change();
         });
     }

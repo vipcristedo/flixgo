@@ -14,7 +14,7 @@ class UpdateSourcesTable extends Migration
     public function up()
     {
         Schema::table('sources', function (Blueprint $table) {
-            $table->integer('movie_id')->nullable()->change();
+            $table->unsignedBigInteger('movie_id')->nullable()->change();
         });
     }
 
@@ -26,7 +26,7 @@ class UpdateSourcesTable extends Migration
     public function down()
     {
         Schema::table('sources', function (Blueprint $table) {
-            $table->integer('movie_id')->nullable()->change();
+            $table->unsignedBigInteger('movie_id')->nullable()->change();
         });
     }
 }

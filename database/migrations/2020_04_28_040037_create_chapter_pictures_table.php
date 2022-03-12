@@ -18,7 +18,7 @@ class CreateChapterPicturesTable extends Migration
             $table->integer('chapter_id')->comment('id cua chapter');
             $table->integer('manga_id')->comment('id cua manga');
             $table->string('link')->comment('link cua anh');
-            $table->string('order')->comment('so thu tu trang');
+            $table->integer('order')->comment('so thu tu trang');
             $table->string('title')->comment('tieu de');
             $table->integer('status')->comment('trang thai');
             $table->string('sources')->nullable()->comment('vi tri luu');

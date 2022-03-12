@@ -15,10 +15,10 @@ class CreateMovieTagTable extends Migration
     {
         Schema::create('movie_tag', function (Blueprint$table) {
             $table->bigIncrements('id');
-            $table->integer('movie_id');
-            $table->integer('tag_id');
-            $table->integer('user_created_id');
-            $table->integer('user_updated_id');
+            $table->unsignedBigInteger('movie_id');
+            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('user_created_id');
+            $table->unsignedBigInteger('user_updated_id');
             $table->timestamps();
             $table->softDeletes();
         });

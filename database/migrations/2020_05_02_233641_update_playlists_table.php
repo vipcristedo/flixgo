@@ -14,7 +14,7 @@ class UpdatePlaylistsTable extends Migration
     public function up()
     {
         Schema::table('playlists', function (Blueprint $table) {
-            $table->integer('movie_id')->nullable()->change();
+            $table->unsignedBigInteger('movie_id')->nullable()->change();
             $table->integer('status')->default(1)->change();
         });
     }
@@ -27,7 +27,7 @@ class UpdatePlaylistsTable extends Migration
     public function down()
     {
         Schema::table('playlists', function (Blueprint $table) {
-            $table->integer('movie_id')->nullable()->change();
+            $table->unsignedBigInteger('movie_id')->nullable()->change();
             $table->integer('status')->default(1)->change();
         });
     }

@@ -15,10 +15,10 @@ class CreateAdminRoleTable extends Migration
     {
         Schema::create('admin_role', function (Blueprint $table) {
            $table->bigIncrements('id');
-           $table->integer('admin_id');
-           $table->integer('role_id');
-           $table->integer('user_created_id');
-           $table->integer('user_updated_id');
+           $table->unsignedBigInteger('admin_id');
+           $table->unsignedBigInteger('role_id');
+           $table->unsignedBigInteger('user_created_id');
+           $table->unsignedBigInteger('user_updated_id');
            $table->timestamps();
            $table->softDeletes();
        });

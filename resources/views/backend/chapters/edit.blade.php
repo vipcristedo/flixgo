@@ -205,9 +205,11 @@
             });
         })
         $('#add_ads').click(function () {
-            console.log('dfghjkl')
             $.ajax({
                 url:'/admin/manga_ad/store',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 type: 'POST',
                 data: {
                     link: $('#link').val(),
@@ -255,6 +257,8 @@
 @endsection
 
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
     <div class="col-12">
         <div class="profile__content">
             <!-- profile user -->

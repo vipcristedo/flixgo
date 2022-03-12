@@ -93,7 +93,9 @@ class MangaController extends Controller
         } elseif ($current['chap'] == 1) {
             $chapter['next'] = Chapter::select('id', 'manga_id', 'name', 'slug', 'chap')
                 ->where('chap', $current->chap + 1)
-                ->first()
+                ->first();
+            if($chapter['next'])
+                $chapter['next'] = $chapter['next']
                 ->toArray();
         } else {
             $chapter['pre'] = Chapter::select('id', 'manga_id', 'name', 'slug', 'chap')
@@ -103,11 +105,10 @@ class MangaController extends Controller
         }
 
         $chapters = $chapters->orderBy('chap', 'asc')->get()->toArray();
-        $pictures = $current->pictures()->select('chapter_pictures.id', 'chapter_id', 'manga_id', 'link')->orderBY('order', 'asc')->get()->toArray();
+        $pictures = $current->pictures()->select('chapter_pictures.id', 'chapter_id', 'link')->orderBY('order', 'asc')->get()->toArray();
 
         $ads = Manga_ads::select('id','object_id','table_name','link','artical')
             ->where('object_id',$current->id)
-            ->where('table_name','chapters')
             ->inRandomOrder()
             ->limit((int)env('ADS',count($pictures)))
             ->get()
@@ -121,7 +122,7 @@ class MangaController extends Controller
 
         $chapter['current'] = $current->toArray();
 
-        return view('frontend.pages.manga.chapter')->with([
+        return view('frontend.pages.manga.manga_chapter')->with([
             'manga' => $manga,
             'chapter' => $chapter,
             'chapters' => $chapters,

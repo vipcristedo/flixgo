@@ -14,8 +14,8 @@ class UpdatePermissionRoleTable extends Migration
     public function up()
     {
         Schema::table('permission_role', function (Blueprint $table) {
-            $table->integer('user_updated_id')->nullable()->change();
-            $table->string('user_created_id')->nullable()->change();
+            $table->unsignedBigInteger('user_updated_id')->nullable()->change();
+            $table->unsignedBigInteger('user_created_id')->nullable()->change();
         });
     }
 
